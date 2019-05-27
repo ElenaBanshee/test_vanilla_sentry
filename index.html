@@ -22,6 +22,13 @@
 
   <body>
     <!-- START HERE -->
+    <script>
+      try {
+        console.lognnn(abcdefgh);
+      } catch (err) {
+        Sentry.captureException(err);
+      }
+    </script>
     <button id="hello">Hello</button>
     <button id="error">Error</button>
     <div id="output"></div>
@@ -29,12 +36,14 @@
       src="https://browser.sentry-cdn.com/5.3.0/bundle.min.js"
       crossorigin="anonymous"
     ></script>
+
     <script>
       (function() {
         'use strict';
         Sentry.init({
           dsn: 'https://c99dcf8caf1341aaab0c28a779410f14@sentry.io/1468566'
         });
+
         var helloEl = document.getElementById('hello');
         var errorEl = document.getElementById('error');
         var outputEl = document.getElementById('output');
